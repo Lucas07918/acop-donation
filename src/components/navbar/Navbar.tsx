@@ -6,6 +6,7 @@ import {
   Link,
   Collapsible,
   VStack,
+  Drawer,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
@@ -15,7 +16,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Collapsible.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+      <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
         <Flex
           as="nav"
           role="navigation"
@@ -112,7 +113,7 @@ export function Navbar() {
             ))}
           </VStack>
         </Collapsible.Content>
-      </Collapsible.Root>
+      </Drawer.Root>
     </>
   );
 }
