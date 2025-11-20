@@ -4,9 +4,10 @@ import {
   Box,
   Text,
   Link,
-  Collapsible,
-  VStack,
   Drawer,
+  Button,
+  CloseButton,
+  Portal,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
@@ -41,7 +42,7 @@ export function Navbar() {
           </Box>
 
           {/* Navigation Items */}
-          <HStack gap="6">
+          <HStack gap="6" display={{ base: "none", md: "flex" }}>
             {["O que fazemos", "Faça parte", "Outros"].map((label) => (
               <Link
                 key={label}
@@ -69,50 +70,58 @@ export function Navbar() {
           </HStack>
 
           {/* Mobile Menu Button */}
-          <Collapsible.Trigger asChild>
-            <Collapsible.Indicator
+          <Drawer.Trigger asChild>
+            <Button
               transition="transform 0.2s"
               _open={{ transform: "rotate(90deg)" }}
+              display={{ base: "flex", md: "none" }}
             >
               {open ? <LuX size={22} /> : <LuMenu size={22} />}
-            </Collapsible.Indicator>
-          </Collapsible.Trigger>
+            </Button>
+          </Drawer.Trigger>
         </Flex>
 
         {/* MENU MOBILE (Collapsible Content) */}
-        <Collapsible.Content>
-          <VStack
-            w="100%"
-            bg="white"
-            color="#19376d"
-            py="4"
-            gap="4"
-            borderBottom="1px solid"
-            borderColor="gray.200"
-          >
-            {menuItems.map((item) => (
-              <Link
-                key={item}
-                href="#"
-                w="90%"
-                textAlign="center"
-                px="3"
-                py="3"
-                borderRadius="md"
-                _hover={{
-                  bg: "rgba(25, 55, 109, 0.12)",
-                  textDecoration: "none",
-                }}
-                _active={{
-                  bg: "rgba(25, 55, 109, 0.18)",
-                }}
-                transition="all 120ms"
-              >
-                {item}
-              </Link>
-            ))}
-          </VStack>
-        </Collapsible.Content>
+        <Portal>
+          <Drawer.Backdrop />
+          <Drawer.Positioner>
+            <Drawer.Content>
+              <Drawer.Header>
+                <Drawer.Title>Drawer Title</Drawer.Title>
+              </Drawer.Header>
+              <Drawer.Body display="flex" flexDir="column" gap={3}>
+                {menuItems.map((item) => (
+                  <Link
+                    key={item}
+                    href="#"
+                    w="90%"
+                    textAlign="center"
+                    px="3"
+                    py="3"
+                    borderRadius="md"
+                    _hover={{
+                      bg: "rgba(25, 55, 109, 0.12)",
+                      textDecoration: "none",
+                    }}
+                    _active={{
+                      bg: "rgba(25, 55, 109, 0.18)",
+                    }}
+                    transition="all 120ms"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </Drawer.Body>
+              <Drawer.Footer>
+                <Button variant="outline">Cancel</Button>
+                <Button>Save</Button>
+              </Drawer.Footer>
+              <Drawer.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Drawer.CloseTrigger>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Portal>
       </Drawer.Root>
     </>
   );
