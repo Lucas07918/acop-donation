@@ -8,13 +8,21 @@ import {
   Button,
   CloseButton,
   Portal,
+  // ClientOnly,
+  // IconButton,
+  // Skeleton,
+  Image,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { LuMenu, LuX } from "react-icons/lu";
+// import { useColorMode } from "../ui/color-mode";
+
+import logo from "../../assets/img/acop-logo-removebg-preview.png";
 
 export function Navbar() {
   const menuItems = ["O que fazemos", "Faça parte", "Outros"];
   const [open, setOpen] = useState(false);
+  // const { toggleColorMode, colorMode } = useColorMode();
   return (
     <>
       <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
@@ -36,9 +44,16 @@ export function Navbar() {
         >
           {/* Logo */}
           <Box>
-            <Text fontSize="xl" fontWeight="bold">
+            {/* <Text fontSize="xl" fontWeight="bold">
               LOGO
-            </Text>
+            </Text> */}
+            <Image
+              src={logo}
+              height="auto"
+              h="32px" // altura igual aos outros itens
+              objectFit="contain"
+              cursor="pointer"
+            />
           </Box>
 
           {/* Navigation Items */}
@@ -62,11 +77,16 @@ export function Navbar() {
                 }}
                 transition="background-color 150ms, transform 100ms"
               >
-                <Text fontSize="md" fontWeight="medium" color="#19376d">
+                <Text fontSize="md" fontWeight="medium" color="#43368f">
                   {label}
                 </Text>
               </Link>
             ))}
+            {/* <ClientOnly fallback={<Skeleton boxSize="8" />}>
+              <IconButton onClick={toggleColorMode} variant="outline" size="sm">
+                {colorMode === "light" ? <LuSun /> : <LuMoon />}
+              </IconButton>
+            </ClientOnly> */}
           </HStack>
 
           {/* Mobile Menu Button */}
