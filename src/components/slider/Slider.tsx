@@ -1,5 +1,12 @@
 import type { IconButtonProps } from "@chakra-ui/react";
-import { Box, Carousel, IconButton, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Carousel,
+  Heading,
+  IconButton,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { forwardRef } from "react";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import image1 from "../../assets/img/jovem-medico.jpg";
@@ -28,13 +35,36 @@ export function Slider() {
 
         <Carousel.ItemGroup width="100%" height="100%" overflow="hidden">
           {items.map((src, index) => (
-            <Carousel.Item key={index} index={index} width="100%" height="100%">
+            <Carousel.Item
+              key={index}
+              index={index}
+              width="100%"
+              height="100%"
+              position="relative"
+            >
               <Image
                 src={src}
                 alt={`Product ${index + 1}`}
                 objectFit="cover"
                 height="100%"
-              />
+              ></Image>
+              <Box
+                position="absolute"
+                top="30%"
+                left="10%"
+                bg="#6A0DAD" // Roxo
+                color="white"
+                px="24px"
+                py="35px"
+                borderRadius="12px"
+                backdropFilter="blur(2px)"
+                zIndex="1"
+                w="600px"
+              >
+                <Heading fontWeight="bold" size="4xl">
+                  ACOP: Governança, Transparência e Impacto Social
+                </Heading>
+              </Box>
             </Carousel.Item>
           ))}
         </Carousel.ItemGroup>

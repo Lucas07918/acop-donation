@@ -15,6 +15,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import image1 from "../../assets/img/jovem-medico.jpg";
 import image2 from "../../assets/img/clinica-vazia.jpg";
 import image3 from "../../assets/img/blur-hospital.jpg";
+import { Modal } from "../modal/Modal";
 
 export function Main() {
   const posts = [
@@ -96,7 +97,7 @@ export function Main() {
             população brasileira
           </Text>
 
-          <Button
+          {/* <Button
             variant="solid"
             bg="#A020F0"
             color="white"
@@ -106,7 +107,8 @@ export function Main() {
           >
             Faça sua doação
             <LuArrowUpRight />
-          </Button>
+          </Button> */}
+          <Modal text="Faça sua doação" />
         </Flex>
       </Flex>
 
@@ -193,17 +195,7 @@ export function Main() {
             <br /> é Investir em Vida
           </Heading>
 
-          <Button
-            variant="solid"
-            bg="#A020F0"
-            color="white"
-            size="lg"
-            w={{ base: "100%", sm: "260px" }}
-            _hover={{ bg: "#b44aff" }}
-          >
-            Faça sua doação
-            <LuArrowUpRight />
-          </Button>
+          <Modal text="Faça sua doação" />
         </Flex>
 
         {/* RIGHT SIDE */}

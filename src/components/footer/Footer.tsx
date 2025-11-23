@@ -8,14 +8,15 @@ import {
   //   Icon,
   //   HStack,
   Separator,
+  HStack,
 } from "@chakra-ui/react";
-// import {
-//   FaLinkedin,
-//   FaFacebook,
-//   FaInstagram,
-//   FaYoutube,
-//   FaXTwitter,
-// } from "react-icons/fa6";
+import {
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -30,41 +31,11 @@ export function Footer() {
         {/* Column 1 */}
         <Box>
           <Heading as="h4" fontSize="md" mb="4">
-            Nu International
+            Informações
           </Heading>
 
           <Flex direction="column" gap="2" color="white">
-            <FooterLink>About Nu</FooterLink>
-            <FooterLink>Careers</FooterLink>
-            <FooterLink>Newsroom</FooterLink>
-            <FooterLink>Investor Relations ↗</FooterLink>
-          </Flex>
-        </Box>
-
-        {/* Column 2 */}
-        <Box>
-          <Heading as="h4" fontSize="md" mb="4">
-            Global Presence
-          </Heading>
-
-          <Flex direction="column" gap="2">
-            <FooterLink>Brazil ↗</FooterLink>
-            <FooterLink>Mexico ↗</FooterLink>
-            <FooterLink>Colombia ↗</FooterLink>
-          </Flex>
-        </Box>
-
-        {/* Column 3 */}
-        <Box>
-          <Heading as="h4" fontSize="md" mb="4">
-            Blogs
-          </Heading>
-
-          <Flex direction="column" gap="2">
-            <FooterLink>Home ↗</FooterLink>
-            <FooterLink>Brazil ↗</FooterLink>
-            <FooterLink>Mexico ↗</FooterLink>
-            <FooterLink>Colombia ↗</FooterLink>
+            <FooterLink>Sobre nós</FooterLink>
           </Flex>
         </Box>
       </Grid>
@@ -81,21 +52,21 @@ export function Footer() {
         {/* Logo + Text */}
         <Box>
           <Text fontSize="sm" opacity={0.75}>
-            © 2024 ONG — Todos os direitos reservados
+            © 2025 ACOP — Todos os direitos reservados
           </Text>
-          <Text fontSize="sm" opacity={0.5}>
-            Rua Exemplo, 123 — São Paulo, SP — 00000-000
-          </Text>
+          {/* <Text fontSize="sm" opacity={0.5}>
+            CNPJ https://cnpj.biz/62495539000116
+          </Text> */}
         </Box>
 
         {/* Social Icons */}
-        {/* <HStack gap="4">
-          <SocialIcon icon={FaLinkedin} />
-          <SocialIcon icon={FaYoutube} />
-          <SocialIcon icon={FaFacebook} />
-          <SocialIcon icon={FaInstagram} />
-          <SocialIcon icon={FaXTwitter} />
-        </HStack> */}
+        <HStack gap="4">
+          <FaLinkedin />
+          <FaYoutube />
+          <FaFacebook />
+          <FaInstagram />
+          <FaXTwitter />
+        </HStack>
       </Flex>
     </Box>
   );
@@ -123,8 +94,8 @@ function FooterLink({ children }: { children: React.ReactNode }) {
 //       boxSize="5"
 //       opacity={0.75}
 //       _hover={{ opacity: 1 }}
-//       >
-//           {{icon}}
+//     >
+//        {Icon}
 //     </Box>
 //   );
 // }

@@ -58,7 +58,7 @@ export function Navbar() {
 
           {/* Navigation Items */}
           <HStack gap="6" display={{ base: "none", md: "flex" }}>
-            {["O que fazemos", "Faça parte", "Outros"].map((label) => (
+            {["O que fazemos"].map((label) => (
               <Link
                 key={label}
                 href="#"
